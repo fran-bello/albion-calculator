@@ -45,37 +45,48 @@ export default function AnalysisResults({ analisisActual, guardarAnalisis, limpi
             </div>
           </div>
 
-          {/* Métricas detalladas */}
-          <div className="row">
-            <div className="col-md-2 mb-3">
+          {/* Métricas detalladas - Primera fila */}
+          <div className="row mb-4">
+            <div className="col-md-4 mb-3">
               <div className="text-center">
                 <i className="pi pi-heart text-success" style={{ fontSize: '1.5rem' }}></i>
                 <h6 className="mt-2 text-success">{analisisActual.nutricionPorPastel || 156}</h6>
                 <p className="text-muted mb-0 small" style={{ fontSize: '0.7rem' }}>Nutrición por Pastel</p>
               </div>
             </div>
-            <div className="col-md-2 mb-3">
+            <div className="col-md-4 mb-3">
               <div className="text-center">
                 <i className="pi pi-dollar text-info" style={{ fontSize: '1.5rem' }}></i>
                 <h6 className="mt-2 text-info">${analisisActual.costoPastel || 0}</h6>
                 <p className="text-muted mb-0 small" style={{ fontSize: '0.7rem' }}>Costo del Pastel</p>
               </div>
             </div>
-            <div className="col-md-3 mb-3">
+            <div className="col-md-4 mb-3">
               <div className="text-center">
                 <i className="pi pi-calculator text-warning" style={{ fontSize: '1.5rem' }}></i>
                 <h6 className="mt-2 text-warning">${analisisActual.costoPor100Nutricion?.toFixed(2) || '0.00'}</h6>
                 <p className="text-muted mb-0 small" style={{ fontSize: '0.7rem' }}>Costo por 100 Nutrición</p>
               </div>
             </div>
-            <div className="col-md-2 mb-3">
+          </div>
+
+          {/* Métricas detalladas - Segunda fila alineada */}
+          <div className="row mb-4">
+            <div className="col-md-4 mb-3">
               <div className="text-center">
                 <i className="pi pi-box text-success" style={{ fontSize: '1.5rem' }}></i>
                 <h6 className="mt-2 text-success">{analisisActual.pastelesUsados || 0}</h6>
                 <p className="text-muted mb-0 small" style={{ fontSize: '0.7rem' }}>Pasteles Usados</p>
               </div>
             </div>
-            <div className="col-md-3 mb-3">
+            <div className="col-md-4 mb-3">
+              <div className="text-center">
+                <i className="pi pi-wallet text-warning" style={{ fontSize: '1.5rem' }}></i>
+                <h6 className="mt-2 text-warning">${analisisActual.montoInvertido || 0}</h6>
+                <p className="text-muted mb-0 small" style={{ fontSize: '0.7rem' }}>Monto Invertido</p>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
               <div className="text-center">
                 <i className="pi pi-dollar text-success" style={{ fontSize: '1.5rem' }}></i>
                 <h6 className="mt-2 text-success">${analisisActual.silverGenerado || 0}</h6>
