@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🥧 Albion Online - Calculadora de Rentabilidad de Pasteles
 
-## Getting Started
+Una aplicación web moderna para calcular la rentabilidad de la fabricación de pasteles de pollo en Albion Online, con análisis de costos, precios del mercado y seguimiento de ganancias.
 
-First, run the development server:
+## ✨ Características Principales
 
+- **📊 Análisis de Rentabilidad**: Cálculo automático de ganancias y ROI
+- **🏪 Precios del Mercado**: Consulta en tiempo real de precios de materiales
+- **💰 Seguimiento de Ganancias**: Historial de análisis y acumulación de silver
+- **🌙 Tema Claro/Oscuro**: Interfaz adaptable con cambio de tema
+- **📱 Responsive Design**: Optimizado para móviles y escritorio
+- **🏙️ Múltiples Ciudades**: Soporte para todas las ciudades de Albion Online
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Frontend**: Next.js 14, React 18
+- **UI Components**: PrimeReact, Bootstrap 5
+- **Styling**: CSS Modules, CSS Variables
+- **State Management**: React Hooks, Context API
+- **API**: Albion Online Data API
+- **Deployment**: Vercel
+
+## 🚀 Instalación y Uso
+
+### Prerrequisitos
+- Node.js 18+ 
+- npm o yarn
+
+### Instalación
 ```bash
+# Clonar el repositorio
+git clone https://github.com/tu-usuario/albion-app.git
+cd albion-app
+
+# Instalar dependencias
+npm install
+
+# Ejecutar en desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Variables de Entorno
+Crea un archivo `.env.local` en la raíz del proyecto:
+```env
+# No se requieren variables de entorno para el funcionamiento básico
+# La aplicación usa APIs públicas de Albion Online
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📱 Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. **Configuración de la Tienda**
+- Costo del pastel de pollo
+- Precios para clientes generales y socios
+- Silver acumulado en la tienda
 
-## Learn More
+### 2. **Configuración de Fabricación**
+- Precios de materiales (pollo, carne, trigo, harina)
+- Costos de picar pollo y cocina
+- Comparación de métodos de fabricación
 
-To learn more about Next.js, take a look at the following resources:
+### 3. **Análisis de Rentabilidad**
+- Cálculo automático de ganancias por pastel
+- ROI (Retorno de Inversión) para diferentes tipos de cliente
+- Comparación de métodos de fabricación (picar pollos vs carne directa)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. **Precios del Mercado**
+- Consulta automática de precios en tiempo real
+- Historial de 24 horas de precios
+- Aplicación masiva de precios (mínimos, máximos, promedios)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. **Seguimiento y Historial**
+- Guardado de análisis en localStorage
+- Acumulación de silver generado
+- Historial de pasteles usados
 
-## Deploy on Vercel
+## 🎨 Temas y Personalización
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+La aplicación incluye dos temas:
+- **🌞 Tema Claro**: Fondo blanco con elementos grises claros
+- **🌙 Tema Oscuro**: Fondo azul oscuro (#112731) con tarjetas azul medio (#06334b)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📊 API de Albion Online
+
+La aplicación utiliza la API oficial de Albion Online para obtener precios del mercado:
+- **Endpoint**: `https://west.albion-online-data.com/api/v2/stats/history/`
+- **Datos**: Historial de 24 horas de precios
+- **Ciudades**: Todas las ciudades disponibles en el juego
+
+## 🚀 Deployment
+
+### Vercel (Recomendado)
+1. Conecta tu repositorio de GitHub a Vercel
+2. Vercel detectará automáticamente que es un proyecto Next.js
+3. El build y deployment serán automáticos
+
+### Otros Servicios
+- **Netlify**: Soporte completo para Next.js
+- **Railway**: Opción gratuita disponible
+- **Render**: Hosting gratuito para aplicaciones web
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas! Por favor:
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+## 🙏 Agradecimientos
+
+- **Albion Online**: Por crear un juego increíble
+- **Albion Online Data**: Por proporcionar la API de precios
+- **Next.js Team**: Por el framework React
+- **PrimeReact**: Por los componentes UI de alta calidad
+
+## 📞 Contacto
+
+- **GitHub**: [@tu-usuario](https://github.com/tu-usuario)
+- **Proyecto**: [Albion App](https://github.com/tu-usuario/albion-app)
+
+---
+
+⭐ Si te gusta este proyecto, ¡dale una estrella en GitHub!

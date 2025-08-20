@@ -1,0 +1,67 @@
+/* Estilos personalizados para el CitySelector */
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownButton {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.dropdownButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  filter: brightness(1.1);
+}
+
+.dropdownOption {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  padding: 12px 16px;
+}
+
+.dropdownOption:hover:not(.active) {
+  transform: translateX(4px);
+  filter: brightness(0.95);
+}
+
+.dropdownOption.active {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+.dropdownList {
+  animation: fadeInDown 0.2s ease-out;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdownList .card {
+  border: none;
+  border-radius: 8px;
+}
+
+.dropdownList .list-group-item {
+  border: none;
+  border-radius: 0;
+}
+
+.dropdownList .list-group-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdownList .list-group-item:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
