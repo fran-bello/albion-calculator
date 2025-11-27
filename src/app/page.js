@@ -9,7 +9,8 @@ import FabricationAnalysis from '../components/FabricationAnalysis';
 import AccumulatedAmounts from '../components/AccumulatedAmounts';
 import HistoryChart from '../components/HistoryChart';
 import CitySelector from '../components/CitySelector';
-import ThemeToggle from '../components/ThemeToggle';
+import Link from 'next/link';
+import { Button } from 'primereact/button';
 import PrimeReactThemeLoader from '../components/PrimeReactThemeLoader';
 import { useRentabilidad } from '../hooks/useRentabilidad';
 
@@ -239,63 +240,50 @@ export default function Home() {
     <>
       <PrimeReactThemeLoader />
       <div className="app-container">
-        {/* Selector de tema en la esquina superior derecha */}
-        <div className="theme-toggle-wrapper">
-          <ThemeToggle />
-        </div>
-        
+        {/* Header de la aplicación */}
+        <header className="app-header">
+          <div className="app-header-title">
+            <i className="pi pi-store"></i>
+            <span>Albion Online - Calculadora de Rentabilidad</span>
+          </div>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <Link href="/flipping" passHref>
+              <Button 
+                label="Market Flipping" 
+                icon="pi pi-chart-line" 
+                className="p-button-text"
+                style={{ color: 'var(--text-primary)' }}
+              />
+            </Link>
+          </div>
+        </header>
+
         <div className="main-layout">
           <Toast ref={toast} />
           
-          {/* Columna izquierda - Imagen fija con título */}
-          <div className="left-column">
-            <img 
-              src="/tanner.webp" 
-              alt="Tanner Workshop" 
-              className="background-image"
-            />
-            {/* Cortina oscura */}
-            <div className="overlay"></div>
-            {/* Título superpuesto */}
-            <div className="overlay-content">
-              <div className="text-center">
-                <div className="d-flex justify-content-center align-items-center mb-3">
-                  <img 
-                    src="https://render.albiononline.com/v1/item/T4_SILVERBAG_NONTRADABLE.png?quality=1&size=60" 
-                    alt="Silver" 
-                    className="me-3"
-                    style={{ width: '60px', height: '60px' }}
-                  />
-                  <h1 className="main-title">
-                    <i className="pi pi-store me-3"></i>
-                    Tienda Curtidora
-                  </h1>
-                  <img 
-                    src="https://render.albiononline.com/v1/item/T3_MEAL_PIE.png?quality=1&size=60" 
-                    alt="Chicken Pie" 
-                    className="ms-3"
-                    style={{ width: '60px', height: '60px' }}
-                  />
-                </div>
-                <h2 className="subtitle" style={{ color: cityColors[selectedCity.name] }}>
-                  {selectedCity.name}
-                </h2>
-                <p className="description">
-                  Calculadora de Rentabilidad Basada en Nutrición vs Ganancia
-                </p>
+          {/* Sidebar izquierdo */}
+          <aside className="left-column">
+            <div className="left-column-header">
+              <div className="left-column-title">
+                <i className="pi pi-calculator"></i>
+                Tienda Curtidora
               </div>
+              <p className="left-column-subtitle">
+                Calculadora de Rentabilidad
+              </p>
             </div>
-          </div>
+            
+            <div style={{ padding: '1rem' }}>
+              {/* Selector de Ciudad */}
+              <CitySelector 
+                selectedCity={selectedCity}
+                onCityChange={handleCityChange}
+              />
+            </div>
+          </aside>
 
-          {/* Columna derecha - Contenido con scroll */}
-          <div className="right-column">
-            
-            {/* Selector de Ciudad */}
-            <CitySelector 
-              selectedCity={selectedCity}
-              onCityChange={handleCityChange}
-            />
-            
+          {/* Contenido principal */}
+          <main className="right-column">
             {/* Componente de Precios del Mercado */}
             <MarketPrices 
               precioMercado={precioMercado}
@@ -328,8 +316,7 @@ export default function Home() {
 
             {/* Componente de Historial */}
             <HistoryChart historial={historial} />
-
-          </div>
+          </main>
         </div>
       </div>
     </>

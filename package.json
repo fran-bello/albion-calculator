@@ -2,11 +2,14 @@
   "name": "albion-app",
   "version": "0.1.0",
   "private": true,
+  "main": "electron/main.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "electron:dev": "concurrently \"next dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron:build": "next build && electron-builder"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -21,7 +24,26 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "24.3.0",
+    "concurrently": "^9.2.1",
+    "electron": "^39.2.3",
+    "electron-builder": "^26.0.12",
     "eslint": "^9",
-    "eslint-config-next": "15.4.7"
+    "eslint-config-next": "15.4.7",
+    "wait-on": "^9.0.3"
+  },
+  "build": {
+    "appId": "com.albionapp.flipping",
+    "productName": "Albion Flipping Tool",
+    "files": [
+      "out/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    }
   }
 }

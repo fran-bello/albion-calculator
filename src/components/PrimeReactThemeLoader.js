@@ -1,11 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useTheme } from '../contexts/ThemeContext';
 
 export default function PrimeReactThemeLoader() {
-  const { theme } = useTheme();
-
   useEffect(() => {
     // Remover tema anterior
     const existingTheme = document.querySelector('link[href*="primereact/resources/themes"]');
@@ -13,12 +10,10 @@ export default function PrimeReactThemeLoader() {
       existingTheme.remove();
     }
 
-    // Cargar nuevo tema
+    // Cargar tema oscuro siempre
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = theme === 'dark' 
-      ? 'https://cdn.jsdelivr.net/npm/primereact@10.0.0/resources/themes/lara-dark-blue/theme.css'
-      : 'https://cdn.jsdelivr.net/npm/primereact@10.0.0/resources/themes/lara-light-blue/theme.css';
+    link.href = 'https://cdn.jsdelivr.net/npm/primereact@10.0.0/resources/themes/lara-dark-blue/theme.css';
     
     document.head.appendChild(link);
 
@@ -27,7 +22,7 @@ export default function PrimeReactThemeLoader() {
         link.parentNode.removeChild(link);
       }
     };
-  }, [theme]);
+  }, []); // Solo ejecutar una vez al montar
 
   return null; // Este componente no renderiza nada
 }
